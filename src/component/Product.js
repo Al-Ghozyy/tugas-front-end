@@ -1,22 +1,22 @@
 import React from 'react';
 
-const Products = () => {
-  const products = [
-    { name: 'Kursi gaming Fantech', price: 'Rp 2.350.000,-' },
-    { name: 'Poco X6 Pro', price: 'Rp 4.999.000,-' },
-    { name: 'SSD Seagate 1TB', price: 'Rp 2.450.000,-' }
-  ];
-
+const Products = ({ fruits }) => {
   return (
-    <div>
-      <h2>Daftar Produk</h2>
-      <ul>
-        {products.map((product, index) => (
-          <li key={index}>
-            {product.name} - {product.price}
-          </li>
+    <div className="products">
+      <h2>Daftar Produk Buah</h2>
+      <div className="product-list">
+        {fruits.map((fruit, index) => (
+          <div key={index} className="product">
+            <img src={fruit.gambar} alt={fruit.nama} />
+            <div className="product-details">
+              <h3>{fruit.nama}</h3>
+              <p>Harga: Rp {fruit.harga.toLocaleString()}</p>
+              <p>Berat: {fruit.berat}</p>
+              <p>Terjual: {fruit.terjual} pcs</p>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
